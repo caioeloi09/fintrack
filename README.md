@@ -23,10 +23,10 @@ O foco do projeto e demonstrar como testes de software (unitarios, de integracao
 
 | Camada | Tecnologia | Justificativa |
 |---|---|---|
-| Backend | Java 21 + Spring Boot | Robusto, amplamente utilizado no mercado, excelente suporte a testes |
-| Banco de dados | H2 (in-memory) / PostgreSQL | H2 para testes, PostgreSQL para producao, facil troca via configuracao |
+| Backend | Python 3 + FastAPI | Simples, moderno, facil de testar e com excelente suporte a testes automatizados |
+| Banco de dados | SQLite + SQLAlchemy | Leve, sem necessidade de servidor, ideal para projetos academicos |
 | Frontend | HTML + CSS + JavaScript (Vanilla) | Sem complexidade de framework, foco nas funcionalidades |
-| Testes unitarios | JUnit 5 + Mockito | Padrao do ecossistema Java, suporte nativo no Spring Boot |
-| Testes de integracao | Spring Boot Test + MockMvc | Testa endpoints HTTP reais com contexto Spring carregado |
+| Testes unitarios | pytest + pytest-cov | Padrao da comunidade Python, cobertura de codigo integrada |
+| Testes de integracao | pytest + httpx (TestClient do FastAPI) | Testa endpoints HTTP reais sem subir servidor externo |
 | Testes E2E | Bruno | Ferramenta open source para testes de API, utilizada no seminario da disciplina |
 | CI | GitHub Actions | Executa todos os testes automaticamente a cada push |
