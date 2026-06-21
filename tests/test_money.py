@@ -11,3 +11,15 @@ def test_signed_amount_income_is_positive():
 def test_signed_amount_expense_is_negative():
     tx = Transaction(1, date(2025, 1, 1), "x", 100, EXPENSE, "food")
     assert tx.signed_amount() == -100
+
+
+def test_format_brl_simple_value():
+    assert format_brl(50) == "R$ 50,00"
+
+
+def test_format_brl_with_thousands():
+    assert format_brl(1234.56) == "R$ 1.234,56"
+
+
+def test_format_brl_zero():
+    assert format_brl(0) == "R$ 0,00"
