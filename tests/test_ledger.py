@@ -41,3 +41,15 @@ def test_add_with_zero_amount_raises():
     ledger = Ledger()
     with pytest.raises(ValueError):
         ledger.add_income("bad", 0, "work")
+
+
+def test_add_with_invalid_kind_raises():
+    ledger = Ledger()
+    with pytest.raises(ValueError):
+        ledger.add("bad", 10, "transfer", "food")
+
+
+def test_add_with_empty_description_raises():
+    ledger = Ledger()
+    with pytest.raises(ValueError):
+        ledger.add_expense("", 10, "food")
