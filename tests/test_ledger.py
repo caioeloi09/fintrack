@@ -116,3 +116,18 @@ def test_filter_by_kind():
     ledger.add_income("a", 10, "work")
     ledger.add_expense("b", 20, "food")
     assert len(ledger.filter_by_kind("income")) == 1
+
+
+def test_filter_by_month():
+    ledger = Ledger()
+    ledger.add_expense("a", 10, "food", on=date(2025, 1, 5))
+    ledger.add_expense("b", 20, "food", on=date(2025, 2, 5))
+    assert len(ledger.filter_by_month(2025, 1)) == 1
+
+
+def test_categories_are_unique_and_sorted():
+    ledger = Ledger()
+    ledger.add_expense("a", 10, "home")
+    ledger.add_expense("b", 20, "food")
+    ledger.add_expense("c", 30, "food")
+    assert ledger.categories() == ["food", "home"]
