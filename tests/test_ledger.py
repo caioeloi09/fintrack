@@ -29,3 +29,15 @@ def test_add_assigns_sequential_ids():
     second = ledger.add_income("b", 20, "x")
     assert first.id == 1
     assert second.id == 2
+
+
+def test_add_with_negative_amount_raises():
+    ledger = Ledger()
+    with pytest.raises(ValueError):
+        ledger.add_expense("bad", -5, "food")
+
+
+def test_add_with_zero_amount_raises():
+    ledger = Ledger()
+    with pytest.raises(ValueError):
+        ledger.add_income("bad", 0, "work")
