@@ -47,3 +47,23 @@ def test_cli_report_groups_by_category(tmp_path, capsys):
     output = capsys.readouterr().out
     assert "food" in output
     assert "30,00" in output
+
+
+def test_cli_no_command_returns_error_code(capsys):
+    code = main([])
+    assert code == 1
+
+
+def test_cli_end_to_end_subprocess(tmp_path):
+    path = str(tmp_path / "data.json")
+    subprocess.run(
+        [sys.executable, "-m", "fintrack", "--file", path, "add",
+         "--description", "salary", "--amount", "1500",
+         "--kind", "income", "--category", "work"],
+        check=True,
+    )
+    result = subprocess.run(
+        [sys.executable, "-m", "fintrack", "--file", path, "balance"],
+        capture_output=True, text=True, check=True,
+    )
+    assert "1.500,00" in result.stdout
