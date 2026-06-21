@@ -131,3 +131,16 @@ def test_categories_are_unique_and_sorted():
     ledger.add_expense("b", 20, "food")
     ledger.add_expense("c", 30, "food")
     assert ledger.categories() == ["food", "home"]
+
+
+def test_add_uses_today_when_no_date():
+    ledger = Ledger()
+    tx = ledger.add_income("a", 10, "work")
+    assert tx.date == date.today()
+
+
+def test_count_reflects_added_transactions():
+    ledger = Ledger()
+    ledger.add_income("a", 10, "work")
+    ledger.add_expense("b", 5, "food")
+    assert ledger.count() == 2
