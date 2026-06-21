@@ -90,3 +90,14 @@ def test_remove_existing_transaction():
 def test_remove_nonexistent_returns_false():
     ledger = Ledger()
     assert ledger.remove(99) is False
+
+
+def test_get_existing_transaction():
+    ledger = Ledger()
+    tx = ledger.add_income("a", 10, "work")
+    assert ledger.get(tx.id) == tx
+
+
+def test_get_nonexistent_returns_none():
+    ledger = Ledger()
+    assert ledger.get(99) is None
