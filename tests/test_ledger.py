@@ -144,3 +144,17 @@ def test_count_reflects_added_transactions():
     ledger.add_income("a", 10, "work")
     ledger.add_expense("b", 5, "food")
     assert ledger.count() == 2
+
+
+def test_all_returns_copy():
+    ledger = Ledger()
+    ledger.add_income("a", 10, "work")
+    transactions = ledger.all()
+    transactions.clear()
+    assert ledger.count() == 1
+
+
+def test_amount_is_rounded():
+    ledger = Ledger()
+    tx = ledger.add_expense("a", 12.346, "food")
+    assert tx.amount == 12.35
