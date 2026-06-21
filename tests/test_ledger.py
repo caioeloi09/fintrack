@@ -63,3 +63,18 @@ def test_add_with_whitespace_description_raises():
 
 def test_balance_empty_ledger_is_zero():
     assert Ledger().balance() == 0
+
+
+def test_total_income():
+    ledger = Ledger()
+    ledger.add_income("a", 100, "work")
+    ledger.add_income("b", 50, "work")
+    ledger.add_expense("c", 30, "food")
+    assert ledger.total_income() == 150
+
+
+def test_total_expense():
+    ledger = Ledger()
+    ledger.add_expense("a", 30, "food")
+    ledger.add_expense("b", 20, "food")
+    assert ledger.total_expense() == 50
