@@ -53,3 +53,13 @@ def test_add_with_empty_description_raises():
     ledger = Ledger()
     with pytest.raises(ValueError):
         ledger.add_expense("", 10, "food")
+
+
+def test_add_with_whitespace_description_raises():
+    ledger = Ledger()
+    with pytest.raises(ValueError):
+        ledger.add_expense("   ", 10, "food")
+
+
+def test_balance_empty_ledger_is_zero():
+    assert Ledger().balance() == 0
