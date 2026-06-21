@@ -101,3 +101,18 @@ def test_get_existing_transaction():
 def test_get_nonexistent_returns_none():
     ledger = Ledger()
     assert ledger.get(99) is None
+
+
+def test_filter_by_category():
+    ledger = Ledger()
+    ledger.add_expense("a", 10, "food")
+    ledger.add_expense("b", 20, "home")
+    ledger.add_expense("c", 30, "food")
+    assert len(ledger.filter_by_category("food")) == 2
+
+
+def test_filter_by_kind():
+    ledger = Ledger()
+    ledger.add_income("a", 10, "work")
+    ledger.add_expense("b", 20, "food")
+    assert len(ledger.filter_by_kind("income")) == 1
