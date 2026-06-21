@@ -1,0 +1,10 @@
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+
+[tool.coverage.run]
+source = ["fintrack"]
+omit = ["fintrack/__main__.py"]
+
+[tool.coverage.report]
+show_missing = true
