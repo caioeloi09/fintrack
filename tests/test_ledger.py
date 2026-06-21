@@ -78,3 +78,15 @@ def test_total_expense():
     ledger.add_expense("a", 30, "food")
     ledger.add_expense("b", 20, "food")
     assert ledger.total_expense() == 50
+
+
+def test_remove_existing_transaction():
+    ledger = Ledger()
+    tx = ledger.add_expense("a", 10, "food")
+    assert ledger.remove(tx.id) is True
+    assert ledger.count() == 0
+
+
+def test_remove_nonexistent_returns_false():
+    ledger = Ledger()
+    assert ledger.remove(99) is False
