@@ -24,3 +24,26 @@ def test_cli_summary(tmp_path, capsys):
     output = capsys.readouterr().out
     assert "receita" in output
     assert "1.000,00" in output
+
+
+def test_cli_list_shows_transactions(tmp_path, capsys):
+    path = str(tmp_path / "data.json")
+    main(["--file", path, "add", "--description", "coffee",
+          "--amount", "8", "--kind", "expense", "--category", "food"])
+    capsys.readouterr()
+    main(["--file", path, "list"])
+    output = capsys.readouterr().out
+    assert "coffee" in output
+
+
+def test_cli_report_groups_by_category(tmp_path, capsys):
+    path = str(tmp_path / "data.json")
+    main(["--file", path, "add", "--description", "a",
+          "--amount", "10", "--kind", "expense", "--category", "food"])
+    main(["--file", path, "add", "--description", "b",
+          "--amount", "20", "--kind", "expense", "--category", "food"])
+    capsys.readouterr()
+    main(["--file", path, "report"])
+    output = capsys.readouterr().out
+    assert "food" in output
+    assert "30,00" in output
