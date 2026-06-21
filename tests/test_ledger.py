@@ -14,3 +14,18 @@ def test_add_expense_decreases_balance():
     ledger.add_income("salary", 1000, "work")
     ledger.add_expense("rent", 400, "home")
     assert ledger.balance() == 600
+
+
+def test_add_returns_created_transaction():
+    ledger = Ledger()
+    tx = ledger.add_expense("coffee", 8, "food")
+    assert tx.description == "coffee"
+    assert tx.amount == 8
+
+
+def test_add_assigns_sequential_ids():
+    ledger = Ledger()
+    first = ledger.add_income("a", 10, "x")
+    second = ledger.add_income("b", 20, "x")
+    assert first.id == 1
+    assert second.id == 2
