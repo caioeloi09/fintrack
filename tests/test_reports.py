@@ -23,3 +23,15 @@ def test_category_totals_sums_by_category():
 
 def test_category_totals_empty_is_empty_dict():
     assert category_totals([]) == {}
+
+
+def test_category_breakdown_returns_percentages():
+    transactions = [expense(75, "food"), expense(25, "home")]
+    result = category_breakdown(transactions)
+    assert result == {"food": 75.0, "home": 25.0}
+
+
+def test_category_breakdown_ignores_income():
+    transactions = [expense(100, "food"), income(500, "work")]
+    result = category_breakdown(transactions)
+    assert result == {"food": 100.0}
