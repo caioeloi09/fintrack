@@ -35,3 +35,12 @@ def test_category_breakdown_ignores_income():
     transactions = [expense(100, "food"), income(500, "work")]
     result = category_breakdown(transactions)
     assert result == {"food": 100.0}
+
+
+def test_category_breakdown_empty_returns_empty():
+    assert category_breakdown([]) == {}
+
+
+def test_top_expense_returns_largest():
+    transactions = [expense(10, "food"), expense(90, "home"), expense(50, "fun")]
+    assert top_expense(transactions).amount == 90
