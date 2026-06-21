@@ -23,3 +23,19 @@ def test_format_brl_with_thousands():
 
 def test_format_brl_zero():
     assert format_brl(0) == "R$ 0,00"
+
+
+def test_parse_amount_brazilian_format():
+    assert parse_amount("1.234,56") == 1234.56
+
+
+def test_parse_amount_simple_decimal():
+    assert parse_amount("1234.56") == 1234.56
+
+
+def test_parse_amount_integer():
+    assert parse_amount("10") == 10.0
+
+
+def test_parse_amount_with_currency_symbol():
+    assert parse_amount("R$ 50,00") == 50.0
