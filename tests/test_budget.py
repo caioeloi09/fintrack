@@ -29,3 +29,30 @@ def test_remaining_returns_difference():
     budget = Budget()
     budget.set_limit("food", 500)
     assert budget.remaining("food", 200) == 300
+
+def test_remaining_unknown_category_is_none():
+    budget = Budget()
+    assert budget.remaining("food", 100) is None
+
+
+def test_is_exceeded_true_when_over_limit():
+    budget = Budget()
+    budget.set_limit("food", 100)
+    assert budget.is_exceeded("food", 150) is True
+
+
+def test_is_exceeded_false_when_under_limit():
+    budget = Budget()
+    budget.set_limit("food", 100)
+    assert budget.is_exceeded("food", 80) is False
+
+
+def test_is_exceeded_false_at_exact_limit():
+    budget = Budget()
+    budget.set_limit("food", 100)
+    assert budget.is_exceeded("food", 100) is False
+
+
+def test_is_exceeded_unknown_category_is_false():
+    budget = Budget()
+    assert budget.is_exceeded("food", 9999) is False
