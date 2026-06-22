@@ -1,6 +1,6 @@
 from datetime import date
-from fintrack.models import Transaction, INCOME, EXPENSE
-from fintrack.reports import (
+from fintrack.models.transaction import Transaction, INCOME, EXPENSE
+from fintrack.core.reports import (
     category_totals,
     category_breakdown,
     top_expense,
