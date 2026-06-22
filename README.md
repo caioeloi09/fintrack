@@ -1,4 +1,6 @@
 # FinTrack - Controle de Financas Pessoais
+[![CI](https://github.com/caioeloi09/fintrack/actions/workflows/ci.yml/badge.svg)](https://github.com/caioeloi09/fintrack/actions/workflows/ci.yml)
+[![codecov](https://codecov.io/github/caioeloi09/fintrack/graph/badge.svg)](https://codecov.io/github/caioeloi09/fintrack)
 
 ## 1. Membros do Grupo
 
