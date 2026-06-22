@@ -1,6 +1,6 @@
 from datetime import date
-from fintrack.money import format_brl, parse_amount
-from fintrack.models import Transaction, INCOME, EXPENSE
+from fintrack.utils.money import format_brl, parse_amount
+from fintrack.models.transaction import Transaction, INCOME, EXPENSE
 
 
 def test_signed_amount_income_is_positive():

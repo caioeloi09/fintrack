@@ -1,5 +1,5 @@
 import pytest
-from fintrack.budget import Budget
+from fintrack.core.budget import Budget
 
 
 def test_set_and_get_limit():

@@ -1,5 +1,5 @@
 from datetime import date
-from .models import Transaction, INCOME, EXPENSE
+from ..models.transaction import Transaction, INCOME, EXPENSE
 
 
 class Ledger:

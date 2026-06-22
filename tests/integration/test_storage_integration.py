@@ -1,6 +1,6 @@
 from datetime import date
-from fintrack.ledger import Ledger
-from fintrack.storage import save, load
+from fintrack.core.ledger import Ledger
+from fintrack.storage.json_store import save, load
 
 
 def test_save_and_load_round_trip(tmp_path):

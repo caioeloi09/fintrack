@@ -1,4 +1,4 @@
-from .models import INCOME, EXPENSE
+from ..models.transaction import INCOME, EXPENSE
 
 
 def category_totals(transactions):

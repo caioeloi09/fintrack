@@ -1,6 +1,6 @@
 from datetime import date
 import pytest
-from fintrack.ledger import Ledger
+from fintrack.core.ledger import Ledger
 
 
 def test_add_income_increases_balance():
