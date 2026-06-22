@@ -1,9 +1,10 @@
 import argparse
 import os
-from .ledger import Ledger
-from .storage import save, load
-from .reports import category_totals
-from .money import format_brl
+
+from ..core.ledger import Ledger
+from ..core.reports import category_totals
+from ..utils.money import format_brl
+from ..storage.json_store import load, save
 
 DEFAULT_FILE = "fintrack_data.json"
 

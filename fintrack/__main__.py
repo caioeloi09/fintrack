@@ -1,5 +1,5 @@
 import sys
-from .cli import main
+from .cli.commands import main
 
 if __name__ == "__main__":
     sys.exit(main())
