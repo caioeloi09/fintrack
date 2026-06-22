@@ -1,6 +1,6 @@
 import subprocess
 import sys
-from fintrack.cli import main
+from fintrack.cli.commands import main
 
 
 def test_cli_add_then_balance(tmp_path, capsys):
